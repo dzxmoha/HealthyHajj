@@ -1,0 +1,69 @@
+.openbadge{
+  line-height: 1;
+  height: 40px;
+  width: 40px;
+  border-radius: 50% 50% 50% 50%;
+}
+
+.themebadges{
+  border-radius: 40px;
+  background-color: #dbdbde;
+
+}
+
+.inscription-progress{
+  padding-top: 10px;
+}
+
+.inscription-progress-bar{
+  border-radius: 0px;
+}
+
+.box-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.progress {
+    max-width: 50%;
+}
+
+.card-workshop{
+  border-bottom-width:1px;
+  border-bottom-style: solid;
+  border-bottom-color: rgb(204, 204, 204);
+  background: #f0f0f4;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+  }
+
+.badge-learn{
+  color: #000;
+
+}
+
+.text-date{
+  color:#45494E;
+}
+
+.col-filter{
+  background:#f0f0f4;
+}
+
+h4, .h4 {
+	font-size: 1.6rem;
+	line-height: 1.286;
+}
+
+.img-background{
+  width: 40vw;
+}
+
+.input-group {
+  background: #333; 
+}
+
+::placeholder {
+  color:#fff !important;
+  opacity: 1 !important; /* Firefox */
+}
