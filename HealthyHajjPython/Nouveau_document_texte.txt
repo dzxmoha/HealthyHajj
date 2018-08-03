@@ -1,0 +1,321 @@
+hokarim13@gmail.com
+
+
+* tp bdd project */
+/* MEDINE SAMIA*/
+
+
+
+
+
+
+select l.* from livre l where not exist ( select * from Auter a join Ectrit e on a.idAuteur = e.idAuteur where (a.nationalite = "Alg")and(l.idlivre = e.idlivre) );
+
+
+
+
+
+
+CREATE TABLE bdd-tp.`produit` (
+  idProd INT NOT NULL,
+  Prodecteur VARCHAR(45) NOT NULL,
+  type VARCHAR(45) NOT NULL,
+  PRIMARY KEY (idProd));
+
+CREATE TABLE bdd-tp.`ord_persl` (
+  Rapidite INT NOT NULL,
+  Ram INT NOT NULL,
+  HD INT NOT NULL,
+  Rd VARCHAR(45) NOT NULL,
+  Prix INT NOT NULL,
+  idProdint not null ,
+    FOREIGN KEY (idProd)
+    REFERENCES bdd-tp.`produit` (idProd)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE);
+
+CREATE TABLE bdd-tp.`ord_port` (
+  Rapidite INT NOT NULL,
+  Ram INT NOT NULL,
+  Hd INT NOT NULL,
+  Rd VARCHAR(45) NOT NULL,
+  Prix int  NOT NULL,
+ idProd int not null ,
+    FOREIGN KEY (idProd)
+    REFERENCES bdd-tp.`produit` (idProd)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE);
+    
+    
+    CREATE TABLE bdd-tp.`impremente` (
+  prix INT NOT NULL,
+  type VARCHAR(45) NOT NULL,
+  couleur boolean NOT NULL,
+  idProd int not null ,
+    FOREIGN KEY (idProd)
+    REFERENCES bdd-tp.`produit` (idProd)
+    ON DELETE  cascade
+    ON UPDATE cascade );
+
+    ALTER TABLE bdd-tp.`ord_port` 
+CHANGE COLUMN Rd Ecran INT NOT NULL ;
+
+Alter table produit 
+change column typ type varchar(45);
+
+
+alter table bdd-tp.`impremente`
+CHANGE COLUMN couleur couleur boolean NOT NULL ;
+
+
+drop table impremente;
+
+select * from produit;
+select *from impremente;
+
+
+/***___ insertion dans les tableau _________**/
+
+/***______________________les produit__________**/
+
+
+
+insert into produit(prodecteur , idProd, type ) value ('A',1001,'PC');
+insert into produit(prodecteur , idProd, type ) value ('A',1002,'PC');
+insert into produit(prodecteur , idProd, type ) value ('A',1003,'PC');
+insert into produit(prodecteur , idProd, type ) value ('A',1008,'PC');
+insert into produit(prodecteur , idProd, type ) value ('A',1007,'PC');
+insert into produit(prodecteur , idProd, type ) value ('A',2001,'Laptop');
+insert into produit(prodecteur , idProd, type ) value ('A',2004,'Laptop');
+insert into produit(prodecteur , idProd, type ) value ('A',2005,'Laptop');
+insert into produit(prodecteur , idProd, type ) value ('A',2006,'Laptop');
+
+
+
+insert into produit(prodecteur , idProd, type ) value ('B',1004,'PC');
+insert into produit(prodecteur , idProd, type ) value ('B',1005,'PC');
+insert into produit(prodecteur , idProd, type ) value ('B',1006,'PC');
+insert into produit(prodecteur , idProd, type ) value ('B',2002,'Laptop');
+insert into produit(prodecteur , idProd, type ) value ('B',2003,'Laptop');
+
+
+insert into produit(prodecteur , idProd, type ) value ('C',2008,'Laptop');
+insert into produit(prodecteur , idProd, type ) value ('C',2009,'Laptop');
+insert into produit(prodecteur , idProd, type ) value ('C',3002,'Printer');
+insert into produit(prodecteur , idProd, type ) value ('C',3003,'Printer');
+insert into produit(prodecteur , idProd, type ) value ('C',3006,'Printer');
+insert into produit(prodecteur , idProd, type ) value ('C',1009,'PC');
+
+
+
+insert into produit(prodecteur , idProd, type ) value ('D',1010,'PC');
+insert into produit(prodecteur , idProd, type ) value ('D',1011,'PC');
+insert into produit(prodecteur , idProd, type ) value ('D',2007,'Laptop');
+
+
+insert into produit(prodecteur , idProd, type ) value ('E',1012,'PC');
+insert into produit(prodecteur , idProd, type ) value ('E',1013,'PC');
+
+
+insert into produit(prodecteur , idProd, type ) value ('F',3001,'Printer');
+insert into produit(prodecteur , idProd, type ) value ('F',3004,'Printer');
+
+
+insert into produit(prodecteur , idProd, type ) value ('G',3005,'Printer');
+insert into produit(prodecteur , idProd, type ) value ('H',3007,'Printer');
+
+
+/*****__ les ordinateur personnels _____***/
+
+insert into ord_persl(idprod,rapidite, ram , hd , rd, prix) value (1001,700,64,10,'48xCD',799);
+insert into ord_persl(idprod,rapidite, ram , hd , rd, prix) value (1002,1500,128,60,'12xDVD',2499);
+insert into ord_persl(idprod,rapidite, ram , hd , rd, prix) value (1003,866,128,20 ,'8xDVD',1999);
+insert into ord_persl(idprod,rapidite, ram , hd , rd, prix) value (1004,866,64,10 ,'12xDVD',999);
+insert into ord_persl(idprod,rapidite, ram , hd , rd, prix) value (1005,1000,128,20 ,'12xDVD',1499);
+insert into ord_persl(idprod,rapidite, ram , hd , rd, prix) value (1006,1300,256,40 ,'16xDVD',2119);
+insert into ord_persl(idprod,rapidite, ram , hd , rd, prix) value (1007,1400,128,80 ,'12xDVD',2299);
+insert into ord_persl(idprod,rapidite, ram , hd , rd, prix) value (1008,700,64,30,'24xCD',999);
+insert into ord_persl(idprod,rapidite, ram , hd , rd, prix) value (1009,1200,128,80,'16xDVD',1699);
+insert into ord_persl(idprod,rapidite, ram , hd , rd, prix) value (1010,750,64,30,'40xCD',699);
+insert into ord_persl(idprod,rapidite, ram , hd , rd, prix) value (1011,1100,128,60,'16xDVD',1299);
+insert into ord_persl(idprod,rapidite, ram , hd , rd, prix) value (1012,350,64,7,'48xCD',799);
+insert into ord_persl(idprod,rapidite, ram , hd , rd, prix) value (1013,733,256,60,'12xDVD',2499);
+
+
+
+
+/*****_____________ ordinateur portable _______**/
+insert into ord_port(idprod,rapidite, ram , hd , ecran, prix) value (2001,700,64,5,12.1,1448);
+insert into ord_port(idprod,rapidite, ram , hd , ecran, prix) value (2002,800,96,10,15.1,2584);
+insert into ord_port(idprod,rapidite, ram , hd , ecran, prix) value (2003,850,64,10,15.1,2738);
+insert into ord_port(idprod,rapidite, ram , hd , ecran, prix) value (2004,550,32,5,12.1,99);
+insert into ord_port(idprod,rapidite, ram , hd , ecran, prix) value (2005,700,64,6,12.1,1448);
+insert into ord_port(idprod,rapidite, ram , hd , ecran, prix) value (2006,800,96,20,15.7,2999);
+insert into ord_port(idprod,rapidite, ram , hd , ecran, prix) value (2007,850,128,20,15.0,3099);
+insert into ord_port(idprod,rapidite, ram , hd , ecran, prix) value (2008,650,64,10,12.1,1249);
+insert into ord_port(idprod,rapidite, ram , hd , ecran, prix) value (2009,750,256,20,15.1,2599);
+insert into ord_port(idprod,rapidite, ram , hd , ecran, prix) value (2010,366,64,10,12.1,1499);
+
+/***_________ lesimprementes_________________***/
+insert into impremente(idprod,couleur, type, prix) value (3001,true,'ink-jet',231);
+insert into impremente(idprod,couleur, type, prix) value (3002,true,'ink-jet',267);
+insert into impremente(idprod,couleur, type, prix) value (3003,false,'Laser',390);
+insert into impremente(idprod,couleur, type, prix) value (3004,true,'ink-jet',439);
+insert into impremente(idprod,couleur, type, prix) value (3005,true,'Bubble',200);
+insert into impremente(idprod,couleur, type, prix) value (3006,true,'Laser',1999);
+insert into impremente(idprod,couleur, type, prix) value (3007,false,'Laser',350);
+
+
+
+
+/***___ les requets ________**/
+
+/*Q1*/
+select hd , p.idProd from ord_port t , produit p 
+where p.idProd = t.idProd ;
+
+
+/*Q2*/
+
+ select  s.idProd from ord_persl s, ord_port t
+        where s.Rapidite = t.Rapidite and s.Ram= t.Ram ;
+        
+/*Q3*/
+select   distinct p.Prodecteur  , p.type from produit  p ,ord_port t , ord_persl s
+ where exists (select idProd from ord_port where rapidite < 700  and 
+  exists(select idProd from ord_persl where rapidite <700 )) 
+  and p.idProd =t.idProd or p.idProd =s.idProd order by prodecteur ;
+
+ /*Q4*/
+select  distinct Prodecteur from produit 
+where exists (select    t.idprod  
+		           from ord_persl s  , ord_persl  t
+                    where exists (  select  t.idProd from  ord_persl s1 , ord_port t1 
+									   where  s1.Rapidite > s.Rapidite and t1.Rapidite >t.Rapidite ));
+		
+
+/*Q5*/
+select  distinct Prodecteur   from produit p ,ord_persl s1 , ord_persl s2
+where  s1.Rapidite <>s2.Rapidite ;
+	
+
+/*Q6*/
+select distinct Prodecteur  from  produit ;
+
+
+/*Q7*/
+select  *from impremente 
+where couleur = true;
+
+/*Q8*/
+select distinct prodecteur , s.Rapidite from  produ , ord_persl s , ord_port t
+where s.HD < 30 and t.Hd < 30 ;
+
+/*Q9*/
+select  distinct p.idProd , s.Prix  personnel  from produit p, ord_persl s, ord_port t
+where p.prodecteur = 'B'  and ( p.idProd = s.idProd   or p.idProd = t.idProd);
+ 
+
+
+/*10*/
+select   distinct prodecteur , p.idProd  from produit  p, ord_persl s , ord_port t 
+where p.idProd = t.idProd   and p.idProd <> s.idprod;
+
+
+/*Q11*/
+select max(prix) from impremente ;
+
+/*Q12*/
+select  distinct t.idprod from ord_persl s , ord_port t 
+where t.rapidite< s.rapidite;
+
+/*Q13*/
+
+select p.idprod from produit  p,impremente y, ord_persl s, ord_port t
+where p.idprod =s.idProd =t.idProd = y.idProd 
+ union(select max(prix) from impremente) union( select max(prix) from ord_port )
+ union (select max(prix) from ord_persl) ;
+
+/*Q14*/
+select prodecteur  , min(prix) from produit p , impremente y
+where  p.idprod = y.idProd  and couleur= true  group by prodecteur;
+
+
+/*Q15*/
+select  distinct prodecteur  ,s.idProd from produit p , ord_persl s , ord_persl t
+where  s.rapidite > t.Rapidite and s.ram <t.ram and p.idProd = s.idProd ;
+
+/*Q16*/
+select avg(rapidite)  as moyen from ord_port
+where prix > 2000;
+
+/*Q17*/
+select avg(prix) as moyen_prix from ord_persl, produit 
+where prodecteur= 'A';
+
+/*Q18*/
+select avg(s.prix)+avg(t.prix)  as moyen_D from ord_persl s, ord_port t , produit 
+where prodecteur= 'D';
+
+
+/*Q19*/
+select avg(prix) , rapidite from ord_port t   group by rapidite
+union
+select rapidite  , avg(prix) from  ord_persl  s  group by rapidite ;
+
+/*20*/
+select prodecteur , avg(ecran) from produit p, ord_port t
+where  p.idProd = t.idProd group by prodecteur ; 
+
+
+/*21*/
+select prodecteur , max(prix) from produit p , ord_persl s
+where p.idProd= s.idProd group by prodecteur ;
+
+
+/*22*/
+select rapidete  ,avg(prix) from laptop s
+where rapidete < 800 group by rapidete ;
+
+/*23*/
+select   distinct avg(hd), prodecteur from ord_persl  s,  produit p
+where type='Printer'   group by prodecteur 
+union   distinct select avg(hd)  , prodecteur from ord_port  t , produit p 
+where   type='Printer'   group by prodecteur ;
+
+/*Q24*/
+select  distinct p.prodecteur   from produit p ,  produit p2 , produit p1 
+
+where  p.type <> p2.type  and p.type  <> p1.type  
+group by p.prodecteur ;
+ 
+
+/*Q25*/
+
+create view v3 as
+select p.prodecteur , count(t.rapidite) as num from produit p  join ord_port  t 
+on p.idProd =t.idProd group by p.prodecteur 
+union
+select p.prodecteur , count(s.rapidite ) as num from produit p join ord_persl s 
+on p.idProd = s.idProd group by p.prodecteur ;
+
+
+
+select distinct p.prodecteur from produit p , v3
+where v3.num=(select max(v3.num) from v3 ) and 
+p.prodecteur = v3.prodecteur ;
+
+
+/*Q26*/
+
+
+create  view v4 as 
+select p.prodecteur , t.prix from produit p join ord_port t on
+p.idProd= t.idProd
+union
+select p.prodecteur , s.prix from produit p join ord_persl on
+p.idProd= s.idProd ;
+
+
+select p.prodecteur , min(v4.prix)  from produit p join v4 on 
+p.prodecteur = v4.prodecteur group by p.prodecteur ;

@@ -1,0 +1,142 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>kangaroo</title>
+    <meta name="description" content="Sufee Admin - HTML5 Admin Template">
+    <meta name="viewport" content="width=device-width, initial-scale=1"> {% load static %}
+    <link rel="apple-touch-icon" href="{% static 'dashboard/apple-icon.png' %}">
+    <link rel="shortcut icon" href="{% static 'dashboard/favicon.ico' %}">
+    <link rel="stylesheet" href="{% static 'dashboard/assets/css/normalize.css' %}">
+    <link rel="stylesheet" href="{% static 'dashboard/assets/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'dashboard/assets/css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'dashboard/assets/css/themify-icons.css' %}">
+    <link rel="stylesheet" href="{% static 'dashboard/assets/css/flag-icon.min.css' %}">
+    <link rel="stylesheet" href="{% static 'dashboard/assets/css/cs-skin-elastic.css' %}">
+    <link rel="stylesheet" href="{% static 'dashboard/assets/scss/style.css' %}">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+    {% if user.is_staff %}
+    {% include "dashboard/infirmier/dashboard.html" %}
+
+    <div id="right-panel" class="right-panel">
+
+       {% include "dashboard/head.html" %}
+          <div class="col-lg-12 p-0">
+                                  <div class="card m-0">
+                                      <div class="card-header">
+                                            <h2 class="text-light display-6">Ajouter patient</h2>
+                                      </div>
+                                         <form action="{% url "ajouter_patient_r_med" rendez_vous_id %}" method="post">
+                                              {% csrf_token %}
+                                                {% load widget_tweaks %}
+                                             <div class="form-group">
+                                  <label class=" form-control-label">Nom</label>
+                                    <div class="input-group">
+                                  <div class="input-group-addon"><i class="fa fa-calendar"></i></div>
+                                    {% render_field form.nom_patient %}
+                              </div>
+                              <small class="form-text text-muted">ex. zekri</small>
+                          </div>
+                          <div class="form-group">
+                              <label class=" form-control-label">Prénom</label>
+                              <div class="input-group">
+                                  <div class="input-group-addon"><i class="ti ti-info"></i></div>
+                                        {% render_field form.prenom_patient %}
+                              </div>
+                              <small class="form-text text-muted">ex. hichem</small>
+                          </div>
+                          <div class="form-group">
+                              <label class=" form-control-label">Date de naissance</label>
+                              <div class="input-group">
+                                  <div class="input-group-addon"><i class="ti ti-info"></i></div>
+                                  {% render_field form.date_de_naissance_patient %}
+                              </div>
+                              <small class="form-text text-muted">ex. jj/mm/yyyy</small>
+                          </div>
+                          <div class="form-group">
+                              <label class=" form-control-label">Sexe</label>
+                              <div class="input-group">
+                                  <div class="input-group-addon"><i class="fa fa-phone"></i></div>
+                                  {% render_field form.sexe_patient %}
+                              </div>
+                              <small class="form-text text-muted">ex. GARçON/FILLE/NON_DETRMINER</small>
+                          </div>
+
+                          <div class="form-group">
+                              <label class=" form-control-label">Adresse</label>
+                              <div class="input-group">
+                                  <div class="input-group-addon"><i class="ti ti-write"></i></div>
+                                  {% render_field form.adr_patient %}
+                              </div>
+                              <small class="form-text text-muted">ex. 17-rue-nom de la rue - commune </small>
+                          </div>
+                          <div class="form-group">
+                              <label class=" form-control-label">Willaya</label>
+                              <div class="input-group">
+                                  <div class="input-group-addon"><i class="ti ti-write"></i></div>
+                                  {% render_field form.willaya %}
+                              </div>
+                              <small class="form-text text-muted">ex. alger </small>
+                          </div>
+
+
+                       <div class="form-group">
+                              <label class=" form-control-label">Parents</label>
+                              <div class="input-group">
+                                  <div class="input-group-addon"><i class="ti ti-write"></i></div>
+                                  {% render_field form.parents %}
+                              </div>
+                              <small class="form-text text-muted">ex. si il existe deja </small>
+                          </div>
+
+
+
+  <div class="card-footer">
+    <button type="submit" class="btn btn-primary btn-lg btn-block">
+      <i class="fa fa-dot-circle-o"></i> Submit
+    </button>
+
+  </div>
+</form>
+
+
+                                  <!-- /# card -->
+                              </div>
+                              </div>
+
+
+
+    </div>
+
+    {% else %}
+          {% include "dashboard/error.html" %}
+    {% endif %}
+
+    <script src="{% static 'dashboard/assets/js/vendor/jquery-2.1.4.min.js' %}"></script>
+    <script src="{% static 'dashboard/assets/js/popper.min.js' %}"></script>
+    <script src="{% static 'dashboard/assets/js/plugins.js' %}"></script>
+    <script src="{% static 'dashboard/assets/js/main.js' %}"></script>
+    <!--  flot-chart js -->
+    <script src="{% static 'dashboard/assets/js/lib/flot-chart/excanvas.min.js' %}"></script>
+    <script src="{% static 'dashboard/assets/js/lib/flot-chart/jquery.flot.js' %}"></script>
+    <script src="{% static 'dashboard/assets/js/lib/flot-chart/jquery.flot.pie.js' %}"></script>
+    <script src="{% static 'dashboard/assets/js/lib/flot-chart/jquery.flot.time.js' %}"></script>
+    <script src="{% static 'dashboard/assets/js/lib/flot-chart/jquery.flot.stack.js' %}"></script>
+    <script src="{% static 'dashboard/assets/js/lib/flot-chart/jquery.flot.resize.js' %}"></script>
+    <script src="{% static 'dashboard/assets/js/lib/flot-chart/jquery.flot.crosshair.js' %}"></script>
+    <script src="{% static 'dashboard/assets/js/lib/flot-chart/curvedLines.js' %}"></script>
+    <script src="{% static 'dashboard/assets/js/lib/flot-chart/flot-tooltip/jquery.flot.tooltip.min.js' %}"></script>
+    <script src="{% static 'dashboard/assets/js/lib/flot-chart/flot-chart-init.js' %}"></script>
+</body>
+
+</html>

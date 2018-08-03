@@ -1,0 +1,46 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    {% load static %}
+    <link href="{% static 'dashboard/assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+<style type="text/css">
+<!--
+span.cls_002{font-family:Arial,serif;font-size:12.1px;color:rgb(0,0,0);font-weight:bold;font-style:normal;text-decoration: none}
+div.cls_002{font-family:Arial,serif;font-size:12.1px;color:rgb(0,0,0);font-weight:bold;font-style:normal;text-decoration: none}
+span.cls_003{font-family:Arial,serif;font-size:12.1px;color:rgb(0,0,0);font-weight:normal;font-style:normal;text-decoration: none}
+div.cls_003{font-family:Arial,serif;font-size:12.1px;color:rgb(0,0,0);font-weight:normal;font-style:normal;text-decoration: none}
+span.cls_004{font-family:Arial,serif;font-size:16.1px;color:rgb(0,0,0);font-weight:bold;font-style:normal;text-decoration: none}
+div.cls_004{font-family:Arial,serif;font-size:16.1px;color:rgb(0,0,0);font-weight:bold;font-style:normal;text-decoration: none}
+-->
+</style>
+
+</head>
+<body>
+<div id="HTMLtoPDF" style="position:absolute;left:50%;margin-left:-306px;top:0px;width:612px;height:792px;border-style:outset;overflow:hidden;background-color:white;">
+<div style="position:absolute;left:50.00px;top:30.00px" class="cls_002"><span class="cls_002">Dr. {{ request.user }}</span></div>
+<div style="position:absolute;left:400.00px;top:35.00px" class="cls_002"><span class="cls_002">Le :</span></div>
+<div style="position:absolute;left:425.00px;top:35.00px" class="cls_003"><span class="cls_003">{{ d }}</span></div>
+<div style="position:absolute;left:40.00px;top:45.00px" class="cls_003"><span class="cls_003">MEDECIN OMNIPRATICIEN</span></div>
+<div style="position:absolute;left:400.00px;top:55.00px" class="cls_002"><span class="cls_002">Nom :</span></div>
+<div style="position:absolute;left:440.00px;top:55.00px" class="cls_003"><span class="cls_003">{{ p.nom_patient }}</span></div>
+    <div style="position:absolute;left:40.00px;top:60.00px" class="cls_003"><span class="cls_003">PEDIATRE</span></div>
+<div style="position:absolute;left:400.00px;top:75.00px" class="cls_002"><span class="cls_002">Prénom :</span></div>
+<div style="position:absolute;left:455.00px;top:75.00px" class="cls_003"><span class="cls_003">{{ p.prenom_patient }}</span></div>
+<div style="position:absolute;left:70.00px;top:80.00px" class="cls_003"><span class="cls_003">A. E. B. - DJELFA</span></div>
+<div style="position:absolute;left:400.00px;top:95.00px" class="cls_002"><span class="cls_002">Age : </span><span class="cls_003">{{ c.age_patient }}</span></div>
+<div style="position:absolute;left:225.00px;top:176.00px" class="cls_004"><span class="cls_004">ORDONNANCE</span></div>
+<div style="position:absolute;left:70.00px;top:280.00px" class="cls_002"><span class="cls_002">Médicaments à acheter :</span></div>
+<div style="position:absolute;left:400.00px;top:280.00px" class="cls_002"><span class="cls_002">nombre de boites | Fois par jour </span></div>
+<div style="position:absolute;left:430.00px;top:630.00px" class="cls_002"><span class="cls_002">Signature :</span></div>
+</div>
+<div class="input-field">
+    <input type="button" class="btn btn-primary" value="preview" onclick="preview()">
+    <input type="button" id="btn" class="btn btn-primary" disabled value="Telecharger PDF" onclick="HTMLtoPDF()">
+</div>
+
+
+<script src="{% static 'dashboard/assets/js/html2canvas.min.js' %}" type="text/javascript"></script>
+<script src="{% static 'dashboard/assets/js/jspdf.debug.js' %}" type="text/javascript"></script>
+<script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+<script src="{% static 'dashboard/assets/js/pdfFromHTML.js' %}" type="text/javascript"></script>
+
+
+</body></html>

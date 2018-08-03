@@ -1,0 +1,235 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>kangaroo</title>
+    <meta name="description" content="Sufee Admin - HTML5 Admin Template">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+{% load static %}
+<link rel="apple-touch-icon" href="{% static 'dashboard/apple-icon.png' %}">
+<link rel="shortcut icon" href="{% static 'dashboard/favicon.ico' %}">
+<link rel="stylesheet" href="{% static 'dashboard/assets/css/normalize.css' %}">
+<link rel="stylesheet" href="{% static 'dashboard/assets/css/bootstrap.min.css' %}">
+<link rel="stylesheet" href="{% static 'dashboard/assets/css/font-awesome.min.css' %}">
+<link rel="stylesheet" href="{% static 'dashboard/assets/css/themify-icons.css' %}">
+<link rel="stylesheet" href="{% static 'dashboard/assets/css/flag-icon.min.css' %}">
+<link rel="stylesheet" href="{% static 'dashboard/assets/css/cs-skin-elastic.css' %}">
+<!-- <link rel="stylesheet" href="assets/css/bootstrap-select.less"> -->
+<link rel="stylesheet" href="{% static 'dashboard/assets/scss/style.css' %}">
+   <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
+
+   <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.min.js"></script> -->
+
+
+</head>
+<body>
+        <!-- Left Panel -->
+    {% if user.is_superuser %}
+
+       {% include "dashboard/medecin/dashboard.html" %}
+
+    <div id="right-panel" class="right-panel">
+
+
+
+    {% include "dashboard/head.html" %}
+
+                              <div class="col-lg-12">
+                                  <div class="card">
+                                      <div class="card-header">
+                                            <h2 class="text-light display-6">Dossier Parent</h2>
+                                      </div>
+                                      {% if p.dossier %}
+                                          <table class="table table-striped table-bordered">
+                                            <tr>
+                                                <td>CYCLE MENSTRUEL MERE :</td>
+                                                <td>{{ p.dossier.cycle_menstruel_mere }}</td>
+
+                                            </tr>
+                                               <tr> <td>DIABETE MERE:</td>
+                                                <td>{{ p.dossier.diabete_mere }}</td></tr>
+
+                                           <tr>
+                                                <td>HTA MERE:</td>
+                                                <td>{{ p.dossier.HTA_mere }}</td>
+
+                                            </tr>
+                                               <tr><td>CARDIAPATHIE MERE: </td>
+                                                <td>{{ p.dossier.cardiopathie_mere }}</td></tr>
+                                           <tr>
+                                                <td>AUTRE :</td>
+                                                <td>{{ p.dossier.autre }}</td>
+
+                                            </tr>
+                                               <tr>
+                                               <td>NOMBRE DE PARITES</td>
+                                               <td>{{ p.dossier.nombre_parite_mere }}</td>
+
+                                           </tr>
+                                              <tr>
+                                               <td>NOMBRE DE CESARIENNES</td>
+                                               <td>{{ p.dossier.nombre_cesariennes }}</td>
+                                           </tr>
+                                            <tr> <td>NOMBRE DE GESTATIONS :</td>
+                                                <td>{{ p.dossier.nombre_gestations_mere }}</td></tr>
+                                           <tr> <td>ANTECEDENTS PATERNELS</td>
+                                                <td>{{ p.dossier.antecedents_paternel }}</td></tr>
+
+
+
+                                           <tr>
+                                               <td>AUTRE REMARQUE</td>
+                                               <td>{{ p.dossier.autre_remarque }}</td>
+                                           </tr>
+
+                                          </table>
+                                        {% else %}
+
+                                          <form action="{% url "dossier_parent" pateint.id  %}" method="post">
+                                              {% csrf_token %}
+                                                {% load widget_tweaks %}
+                                             <div class="row">
+                                             <div class="col-xs-6 col-sm-6">
+
+                                                      <div class="form-group">
+                                  <label class=" form-control-label">Cycle menstruel mere</label>
+                                    <div class="input-group">
+                                    {% render_field form.cycle_menstruel_mere %}
+                              </div>
+                              <small class="form-text text-muted">ex. reguelier </small>
+                          </div>
+
+                                                 <div class="form-group">
+                              <label class=" form-control-label">Diabete mere</label>
+                              <div class="input-group">
+                                  {% render_field form.diabete_mere %}
+                              </div>
+                              <small class="form-text text-muted">ex . True </small>
+                          </div>
+
+                                                 <div class="form-group">
+                              <label class=" form-control-label">HTA mere</label>
+                              <div class="input-group">
+                                  {% render_field form.HTA_mere %}
+                              </div>
+                              <small class="form-text text-muted">ex. False</small>
+                          </div>
+                                                                <div class="form-group">
+                              <label class=" form-control-label">Cardiopathie mere</label>
+                              <div class="input-group">
+                                  {% render_field form.cardiopathie_mere %}
+                              </div>
+                              <small class="form-text text-muted">ex. True</small>
+                          </div>
+                                  <br><br>
+                                  <br>
+                                                   <div class="form-group">
+                              <label class=" form-control-label">Antécédents paternels</label>
+                              <div class="input-group">
+
+
+                                  {% render_field form.antecedents_paternel %}
+                              </div>
+                              <small class="form-text text-muted">ex. maladie genetique</small>
+                          </div>
+
+
+                                             </div>
+                                             <div class="col-xs-6 col-sm-6">
+                                                   <div class="form-group">
+                              <label class=" form-control-label">Autre</label>
+                              <div class="input-group">
+                                        {% render_field form.autre %}
+                              </div>
+                              <small class="form-text text-muted">ex . maladie familiale</small>
+                          </div>
+
+
+                          <div class="form-group">
+                              <label class=" form-control-label">Nombre de gestations</label>
+                              <div class="input-group">
+                                  {% render_field form.nombre_gestations_mere %}
+                              </div>
+                              <small class="form-text text-muted">ex. 01</small>
+                          </div>
+                           <div class="form-group">
+                              <label class=" form-control-label">Nombre de parité</label>
+                              <div class="input-group">
+                                  {% render_field form.nombre_parite_mere %}
+                              </div>
+                              <small class="form-text text-muted">ex. 02</small>
+                          </div>
+                                                  <div class="form-group">
+                              <label class=" form-control-label">Nombre de césariennes</label>
+                              <div class="input-group">
+                                  {% render_field form.nombre_cesariennes_mere %}
+                              </div>
+                              <small class="form-text text-muted">ex. 04</small>
+                          </div>
+                                                               <div class="form-group">
+                              <label class=" form-control-label">Autre remarque</label>
+                              <div class="input-group">
+                                  {% render_field form.autre_remarque %}
+                              </div>
+                              <small class="form-text text-muted">ex. ..... remarque</small>
+                          </div>
+
+
+                                             </div>
+                                                 </div>
+
+
+
+
+
+
+
+
+  <div class="card-footer">
+    <button type="submit" class="btn btn-primary btn-lg btn-block">
+      <i class="fa fa-dot-circle-o"></i> Submit
+    </button>
+
+  </div>
+</form>
+
+
+                                        {% endif %}
+                                  <!-- /# card -->
+                              </div>
+                              </div>
+
+
+          </div>
+        {% else %}
+          {% include "dashboard/error.html" %}
+    {% endif %}
+
+<script src="{% static 'dashboard/assets/js/vendor/jquery-2.1.4.min.js' %}"></script>
+<script src="{% static 'dashboard/assets/js/popper.min.js' %}"></script>
+<script src="{% static 'dashboard/assets/js/plugins.js' %}"></script>
+<script src="{% static 'dashboard/assets/js/main.js' %}"></script>
+
+<!--  flot-chart js -->
+<script src="{% static 'dashboard/assets/js/lib/flot-chart/excanvas.min.js' %}"></script>
+<script src="{% static 'dashboard/assets/js/lib/flot-chart/jquery.flot.js' %}"></script>
+<script src="{% static 'dashboard/assets/js/lib/flot-chart/jquery.flot.pie.js' %}"></script>
+<script src="{% static 'dashboard/assets/js/lib/flot-chart/jquery.flot.time.js' %}"></script>
+<script src="{% static 'dashboard/assets/js/lib/flot-chart/jquery.flot.stack.js' %}"></script>
+<script src="{% static 'dashboard/assets/js/lib/flot-chart/jquery.flot.resize.js' %}"></script>
+<script src="{% static 'dashboard/assets/js/lib/flot-chart/jquery.flot.crosshair.js' %}"></script>
+<script src="{% static 'dashboard/assets/js/lib/flot-chart/curvedLines.js' %}"></script>
+<script src="{% static 'dashboard/assets/js/lib/flot-chart/flot-tooltip/jquery.flot.tooltip.min.js' %}"></script>
+<script src="{% static 'dashboard/assets/js/lib/flot-chart/flot-chart-init.js' %}"></script>
+
+
+
+
+
+      </body>
+</html>

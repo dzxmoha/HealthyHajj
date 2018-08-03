@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+  <html>
+    <head>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+      <!--Import Google Icon Font-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!-- Compiled and minified CSS -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+
+         <!-- Compiled and minified JavaScript -->
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      <meta charset="UTF-8">
+
+    </head>
+
+    <body>
+
+
+
+
+<div class="row">
+  <div class="col s12">
+    <div class="card-panel z-depth-5">
+      <form action="{% url "lettre" patient.id consu.id %}" method="post">
+                                       {% csrf_token %}
+
+        <h4>LETTRE D'ORIENTATION</h4>
+        <div class="input-field">
+          <textarea id="autre" name="autre" class="materialize-textarea">Cher confrère, (cher ami) (cher maitre)
+
+permettez moi de vous adresser le(la) patient(e) sus-nommé(e) {{ patient }}, âgé(e) de {{ consu.age_patient }} ans, aux Antcd de ...., qui s'est présenté ce jour pour ({{ consu.observation }}) , dont l'examen clinique retrouve (signe positif et négatif), avec (résultats des examens paraclinique: ASP, echo, biologie...).
+je vous le confie pour une meilleur prise en charge (pour prise en charge spécialisé ).
+respectueusement (amicalement) (confraternellement).</textarea>
+
+        </div>
+        <button name="b" class="btn-save btn btn-primary btn-sm" >Voir puis imprimer</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+
+<script type="text/javascript">
+$(document).ready(function(){
+  $('select').formSelect();
+});
+</script>
+</body>
+</html>

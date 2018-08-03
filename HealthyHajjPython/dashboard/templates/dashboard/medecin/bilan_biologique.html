@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+  <html>
+    <head>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+      <!--Import Google Icon Font-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!-- Compiled and minified CSS -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+
+         <!-- Compiled and minified JavaScript -->
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      <meta charset="UTF-8">
+
+    </head>
+
+    <body>
+
+
+
+
+<div class="row">
+  <div class="col s12">
+
+      <form action="{% url "bilan" id_patient id_consultation %}" method="post">
+           {% csrf_token %}
+          {% load widget_tweaks %}
+        <h4>BILAN BIOLOGIQUE</h4>
+        <div class="input-field col s6">
+          <p>
+      <label>
+        {% render_field form.glycemie_a_jeun %}
+        <span>Glycemie a jeun</span>
+      </label>
+    </p>
+        </div>
+        <div class="input-field col s6">
+          <p>
+      <label>
+        {% render_field form.TP %}
+        <span>TP</span>
+      </label>
+    </p>
+        </div>
+        <div class="input-field col s6">
+          <p>
+      <label>
+        {% render_field form.NFS %}
+        <span>NFS</span>
+      </label>
+    </p>
+        </div>
+        <div class="input-field col s6">
+          <p>
+      <label>
+        {% render_field form.TCK_INR %}
+        <span>TCK-INR</span>
+      </label>
+    </p>
+        </div>
+        <div class="input-field col s6">
+          <p>
+      <label>
+        {% render_field form.VS %}
+        <span>VS</span>
+      </label>
+    </p>
+        </div>
+        <div class="input-field col s6">
+          <p>
+      <label>
+        {% render_field form.ionogramme_sanguin %}
+        <span>Ionogramme sanguin : Na+, K+</span>
+      </label>
+    </p>
+        </div>
+        <div class="input-field col s6">
+          <p>
+      <label>
+        {% render_field form.HbAlc %}
+        <span>HbAlc</span>
+      </label>
+    </p>
+        </div>
+        <div class="input-field col s6">
+          <p>
+      <label>
+        {% render_field form.calcemie %}
+        <span>Calcémie</span>
+      </label>
+    </p>
+        </div>
+        <div class="input-field col s6">
+          <p>
+      <label>
+        {% render_field form.groupage_sanguin %}
+        <span>Groupage Sanguin</span>
+      </label>
+    </p>
+        </div>
+        <div class="input-field col s6">
+          <p>
+      <label>
+        {% render_field form.phosphoremie %}
+        <span>Phosphoremie</span>
+      </label>
+    </p>
+        </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        <div class="input-field col s6">
+          <br>
+          <label>
+        {% render_field form.bilan_lipidique %}
+            <span>Bilan lipidique</span>
+          </label>
+        </div>
+
+        <div class="input-field col s6">
+          <p>
+      <label>
+        {% render_field form.mahnesemie %}
+        <span>Magnesemie</span>
+      </label>
+    </p>
+        </div>
+        <div class="input-field col s6">
+          <p>
+      <label>
+        {% render_field form.fer_serique %}
+        <span>Fer sérique</span>
+      </label>
+    </p>
+        </div>
+        <div class="input-field col s6">
+          <p>
+      <label>
+        {% render_field form.CRP %}
+        <span>CRP</span>
+      </label>
+    </p>
+        </div>
+        <div class="input-field col s6">
+          <p>
+      <label>
+        {% render_field form.ALSO  %}
+        <span>ALSO</span>
+      </label>
+    </p>
+        </div>
+        <div class="input-field col s6">
+          <p>
+      <label>
+        {% render_field form.febrinogene %}
+        <span>Fibrinogene</span>
+      </label>
+    </p>
+        </div>
+        <div class="input-field col s6">
+          <p>
+      <label>
+        {% render_field form.latex %}
+        <span>Latex</span>
+      </label>
+    </p>
+        </div>
+        <div class="input-field col s6">
+          <p>
+      <label>
+        {% render_field form.creatininemie %}
+        <span>Creatininemie</span>
+      </label>
+    </p>
+        </div>
+        <div class="input-field col s6">
+          <p>
+      <label>
+        {% render_field form.waaler_rose %}
+        <span>Waaler Rose</span>
+      </label>
+    </p>
+        </div><div class="input-field col s6">
+          <p>
+      <label>
+        {% render_field form.bilirubinemie %}
+        <span>Bilirubinemie</span>
+      </label>
+    </p>
+        </div>
+        <div class="input-field col s6">
+          <br>
+          <label>
+        {% render_field form.electrophorese %}
+            <span>  Electrophorese des proteines seriques</span>
+          </label>
+        </div>
+
+        <div class="input-field col s6">
+          <p>
+      <label>
+        {% render_field form.CPK  %}
+        <span>CPK</span>
+      </label>
+    </p>
+        </div><div class="input-field col s6">
+          <p>
+      <label>
+        {% render_field form.phosphatases %}
+        <span>Phosphatases alcalines</span>
+      </label>
+    </p>
+        </div><div class="input-field col s6">
+          <p>
+      <label>
+        {% render_field form.UCB %}
+        <span>UCB des urines</span>
+      </label>
+    </p>
+        </div><div class="input-field col s6">
+          <p>
+      <label>
+        {% render_field form.acide_urique %}
+        <span>Acide Urique</span>
+      </label>
+    </p>
+        </div><div class="input-field col s6">
+          <p>
+      <label>
+        {% render_field form.chimiz_urines %}
+        <span>Chimie des urines</span>
+      </label>
+    </p>
+        </div><div class="input-field col s6">
+          <p>
+      <label>
+        {% render_field form.serologie %}
+        <span>Serologie</span>
+      </label>
+    </p>
+        </div><div class="input-field col s6">
+          <p>
+      <label>
+        {% render_field form.proteinurie %}
+        <span>Proteinurie des 24 heures</span>
+      </label>
+    </p>
+        </div><div class="input-field col s6">
+          <p>
+      <label>
+        {% render_field form.toxoplasmose %}
+        <span>Toxoplasmose - Rubcole</span>
+      </label>
+    </p>
+        </div>
+
+        <div class="input-field col s12">
+        {% render_field form.autre %}
+          <label for="autre">Autres conseils</label>
+        </div>
+
+
+
+        <button class="btn-save btn btn-primary btn-sm col s12" >Voir puis imprimer</button>
+      </form>
+
+  </div>
+</div>
+
+<script type="text/javascript">
+$('[name="bilan"]').on('change', function() {
+  $('#choix1').toggle(this.checked);
+}).change();</script>
+<script type="text/javascript">
+$('[name="bili"]').on('change', function() {
+  $('#choix2').toggle(this.checked);
+}).change();</script>
+<script type="text/javascript">
+$(document).ready(function(){
+  $('select').formSelect();
+});
+</script>
+</body>
+</html>

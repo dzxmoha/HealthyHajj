@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    {% load static %}
+    <link rel="apple-touch-icon" href="{% static 'dashboard/apple-icon.png' %}">
+    <link rel="shortcut icon" href="{% static 'dashboard/favicon.ico' %}">
+    <link rel="stylesheet" href="{% static 'dashboard/assets/css/normalize.css' %}">
+    <link rel="stylesheet" href="{% static 'dashboard/assets/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'dashboard/assets/css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'dashboard/assets/css/themify-icons.css' %}">
+    <link rel="stylesheet" href="{% static 'dashboard/assets/css/flag-icon.min.css' %}">
+    <link rel="stylesheet" href="{% static 'dashboard/assets/css/cs-skin-elastic.css' %}">
+    <!-- <link rel="stylesheet" href="assets/css/bootstrap-select.less"> -->
+    <link rel="stylesheet" href="{% static 'dashboard/assets/scss/style.css' %}">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
+</head>
+<body>
+   <header id="header" class="header" style="background-color:#272c33 ">
+
+          <div class="header-menu"  >
+
+              <div class="col-sm-7" >
+                  <a id="menuToggle" class="menutoggle pull-left"><i class="fa fa fa-tasks"></i></a>
+              </div>
+              <div class="col-sm-5" >
+
+
+                   <nav class=" navbar-expand-lg navbar-light  " id="mainNav">
+            <button class="navbar-toggler navbar-toggler-right float-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto float-right">
+                          <li class="nav-item"> <a class="nav-link  text-white" href="{% url 'cree_patient' %}">ADD </a> </li>
+
+                    <li class="nav-item">     </li>
+                    <li class="nav-item"> <a class="nav-link js-scroll-trigger text-white" href="">******</a> </li>
+                    <li class="nav-item">     </li>
+                <li class="nav-item"> <a class="nav-link  text-white" href="{% url 'consulter_patient' %}">consult</a> </li>
+
+                    <li class="nav-item">     </li>
+                    <li class="nav-item"> <a class="nav-link js-scroll-trigger text-white" href="">******</a> </li>
+                    <li class="nav-item">     </li>
+
+
+                    <li class="nav-item"> <a class="nav-link js-scroll-trigger text-white" href="{% url "first_page" %}">Accueil</a> </li>
+                    <li class="nav-item">     </li>
+                    <li class="nav-item"> <a class="nav-link js-scroll-trigger text-white" href="">******</a> </li>
+                    <li class="nav-item">     </li>
+
+                    <li class="nav-item"> <a class="nav-link js-scroll-trigger text-white" href="">Logout</a> </li>
+                    <li class="nav-item">     </li>
+                    <li class="nav-item"> <a class="nav-link js-scroll-trigger text-white" href="">******</a> </li>
+
+
+                </ul>
+            </div>
+    </nav>
+
+
+              </div>
+
+
+
+
+          </div>
+
+       </header>
+
+</body>
+</html>

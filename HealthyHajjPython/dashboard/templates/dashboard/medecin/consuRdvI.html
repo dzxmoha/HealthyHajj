@@ -1,0 +1,124 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>kangaroo</title>
+    <meta name="description" content="Sufee Admin - HTML5 Admin Template">
+       {% load static %}
+    <link rel="apple-touch-icon" href="{% static 'dashboard/apple-icon.png' %}">
+    <link rel="shortcut icon" href="{% static 'dashboard/favicon.ico' %}">
+    <link rel="stylesheet" href="{% static 'dashboard/assets/css/normalize.css' %}">
+    <link rel="stylesheet" href="{% static 'dashboard/assets/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'dashboard/assets/css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'dashboard/assets/css/themify-icons.css' %}">
+    <link rel="stylesheet" href="{% static 'dashboard/assets/css/flag-icon.min.css' %}">
+    <link rel="stylesheet" href="{% static 'dashboard/assets/css/cs-skin-elastic.css' %}">
+    <!-- <link rel="stylesheet" href="assets/css/bootstrap-select.less"> -->
+    <link rel="stylesheet" href="{% static 'dashboard/assets/scss/style.css' %}">
+
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
+
+    <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.min.js"></script> -->
+
+</head>
+<body>
+        <!-- Left Panel -->
+    {% if user.is_superuser or user.is_staff %}
+{% if user.is_superuser %}
+    {% include "dashboard/medecin/dashboard.html" %}
+        {% elif user.is_staff %}
+                {% include "dashboard/infirmier/dashboard.html" %}
+
+            {% endif %}
+    <!-- Left Panel -->
+
+    <!-- Right Panel -->
+
+    <div id="right-panel" class="right-panel">
+
+        <!-- Header-->
+
+    {% include "dashboard/head.html" %}
+
+      <!-- /#right-panel -->
+      <div class="breadcrumbs">
+          <div class="col-sm-4">
+              <div class="page-header float-left">
+                  <div class="page-title">
+                      <h1>les rendez-vous internes</h1>
+                  </div>
+              </div>
+          </div>
+        </div>
+
+{% if rendez_vous %}
+
+{% for rendez_vous in rendez_vous %}
+
+          <div class="card">
+            <div class="card-header">
+              <h2 class="text-light display-6"> {{rendez_vous.patient.nom_patient}}</h2>
+            </div>
+            <div class="card-body">
+
+              <table class="table">
+
+                <tbody>
+                   <tr>
+                     <td>Sexe</td>
+                     <td>{{rendez_vous.patient.sexe_patient}}</td>
+                   </tr>
+                   <tr>
+                     <td>address</td>
+                     <td>{{rendez_vous.patient.adr_patient}}</td>
+                   </tr>
+                   <tr>
+                     <td>num Téléphone </td>
+                     <td>{{rendez_vous.patient.num_telephone_parent}}</td>
+                   </tr>
+                 </tbody>
+
+
+              </table>
+
+              <h5 class="card-title">{{rendez_vous.motif}}</h5>
+              <a href="{% url "patient" rendez_vous.patient.id  %}" class="btn btn-primary">Dossier</a>
+              <a href="{% url "sup_rdv_i" rendez_vous.id %}" class="btn btn-danger">Supprimer</a>
+
+            </div>
+          </div>
+  {% endfor %}
+  {% else %}
+      <p></p>
+  {% endif %}
+
+          </div>
+
+    <!-- Right Panel -->
+
+{% else %}
+          {% include "dashboard/error.html" %}
+    {% endif %}
+    <script src="{% static 'dashboard/assets/js/vendor/jquery-2.1.4.min.js' %}"></script>
+    <script src="{% static 'dashboard/assets/js/popper.min.js' %}"></script>
+    <script src="{% static 'dashboard/assets/js/plugins.js' %}"></script>
+    <script src="{% static 'dashboard/assets/js/main.js' %}"></script>
+
+    <!--  flot-chart js -->
+    <script src="{% static 'dashboard/assets/js/lib/flot-chart/excanvas.min.js' %}"></script>
+    <script src="{% static 'dashboard/assets/js/lib/flot-chart/jquery.flot.js' %}"></script>
+    <script src="{% static 'dashboard/assets/js/lib/flot-chart/jquery.flot.pie.js' %}"></script>
+    <script src="{% static 'dashboard/assets/js/lib/flot-chart/jquery.flot.time.js' %}"></script>
+    <script src="{% static 'dashboard/assets/js/lib/flot-chart/jquery.flot.stack.js' %}"></script>
+    <script src="{% static 'dashboard/assets/js/lib/flot-chart/jquery.flot.resize.js' %}"></script>
+    <script src="{% static 'dashboard/assets/js/lib/flot-chart/jquery.flot.crosshair.js' %}"></script>
+    <script src="{% static 'dashboard/assets/js/lib/flot-chart/curvedLines.js' %}"></script>
+    <script src="{% static 'dashboard/assets/js/lib/flot-chart/flot-tooltip/jquery.flot.tooltip.min.js' %}"></script>
+    <script src="{% static 'dashboard/assets/js/lib/flot-chart/flot-chart-init.js' %}"></script>
+
+</body>
+</html>

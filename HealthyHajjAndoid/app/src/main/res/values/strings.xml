@@ -1,0 +1,61 @@
+<resources>
+    <string name="app_name">HajjHackaton</string>
+    <string name="edite_message">Enter a message</string>
+    <string name="button_send">Send</string>
+    <string name="result_text_default">Please focus camera to QR Code</string>
+    <string-array name="Hajj1">
+        <item>652782</item>
+        <item>Ahmed</item>
+        <item>A+</item>
+        <item>02</item>
+    </string-array>
+    <string-array name="Hajj2">
+        <item>803772</item>
+        <item>Hicham</item>
+        <item>A+</item>
+        <item>02</item>
+    </string-array>
+    <string-array name="Hajj3">
+        <item>920625</item>
+        <item>ghiles</item>
+        <item>A+</item>
+        <item>02</item>
+    </string-array>
+    <string-array name="DHajj3">
+        <item>1</item> <!--diabete   -->
+        <item>1</item><!--tension    -->
+        <item>0</item><!--arterielle    -->
+        <item>0</item><!--cardiopathie     -->
+        <item>1</item><!--bronchite chronique avec asthme    -->
+        <item>0</item><!--neurologiques    -->
+        <item>1</item><!--gripe    -->
+        <item>0</item><!--allergie    -->
+        <item>Ras</item>
+
+    </string-array>
+    <string-array name="DHajj1">
+        <item>1</item> <!--diabete   -->
+        <item>1</item><!--tension    -->
+        <item>0</item><!--arterielle    -->
+        <item>0</item><!--cardiopathie     -->
+        <item>1</item><!--bronchite chronique avec asthme    -->
+        <item>0</item><!--neurologiques    -->
+        <item>1</item><!--gripe    -->
+        <item>0</item><!--allergie    -->
+        <item>Ras</item>
+
+    </string-array>
+    <string-array name="DHajj2">
+        <item>1</item> <!--diabete   -->
+        <item>1</item><!--tension_arterielle    -->
+        <item>0</item><!-- canser    -->
+        <item>0</item><!--cardiopathie     -->
+        <item>1</item><!--bronchite chronique avec asthme    -->
+        <item>0</item><!--neurologiques    -->
+        <item>1</item><!--gripe    -->
+        <item>0</item><!--allergie    -->
+        <item>Ras</item>
+
+    </string-array>
+
+</resources>
